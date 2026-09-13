@@ -1,0 +1,17 @@
+Create VPC with CIDR as 10.0.0.0/16
+Create Public Subnet (us-east-1a) and with CIDR as 10.0.1.0/24
+Create Private Subnet (us-east-1a) with CIDR as 10.0.2.0/24
+
+Create Internet gateway 
+Attach Internet gateway with the VPC
+
+Create public route table 
+Assign 0.0.0.0/0 to Internet gateway
+Associate public route table to public subnet
+
+Allocate Elastic IP
+Create Nat gateway in public subnet
+Associate Elastic IP with NAT gateway
+Create private route table 
+Assign 0.0.0.0/0 to NAT gateway
+Associate private route table to private subnet
