@@ -1,0 +1,2 @@
+'Bastion host public IP: ' 
+'Bastion host public IP: 98.81.100.53' 
