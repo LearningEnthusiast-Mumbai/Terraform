@@ -1,0 +1,45 @@
+D:\Vikas--Personal\AWS_2026\code\Terraform\EKS>kubectl get ns
+NAME              STATUS   AGE
+default           Active   38m
+kube-node-lease   Active   38m
+kube-public       Active   38m
+kube-system       Active   38m
+
+Important namespaces are default and kube-system
+
+All system related work happens in kube-system namespaces
+
+D:\Vikas--Personal\AWS_2026\code\Terraform\EKS>kubectl get all -n kube-node-lease
+No resources found in kube-node-lease namespace.
+
+D:\Vikas--Personal\AWS_2026\code\Terraform\EKS>kubectl get all -n kube-public
+No resources found in kube-public namespace.
+
+D:\Vikas--Personal\AWS_2026\code\Terraform\EKS>kubectl get all -n default
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   172.20.0.1   <none>        443/TCP   43m
+
+****This is Kubernetes API service running 
+
+D:\Vikas--Personal\AWS_2026\code\Terraform\EKS>kubectl get all -n kube-system
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/aws-node-dvlvn             2/2     Running   0          39m
+pod/aws-node-w5dbg             2/2     Running   0          40m
+pod/coredns-7b97c8df65-26579   1/1     Running   0          43m
+pod/coredns-7b97c8df65-zdh6g   1/1     Running   0          43m
+pod/kube-proxy-ml54v           1/1     Running   0          40m
+pod/kube-proxy-nq4xg           1/1     Running   0          39m
+
+NAME                                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)                  AGE
+service/eks-extension-metrics-api   ClusterIP   172.20.73.85   <none>        443/TCP                  44m
+service/kube-dns                    ClusterIP   172.20.0.10    <none>        53/UDP,53/TCP,9153/TCP   43m
+
+NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+daemonset.apps/aws-node     2         2         2       2            2           <none>          43m
+daemonset.apps/kube-proxy   2         2         2       2            2           <none>          43m
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/coredns   2/2     2            2           43m
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/coredns-7b97c8df65   2         2         2       43m
