@@ -53,6 +53,7 @@ output "node_group_version" {
   value = aws_eks_node_group.eks_ng_public.version
 } 
 
+
 output "node_group_private_status" {
   value = aws_eks_node_group.eks_ng_private.status
 }
